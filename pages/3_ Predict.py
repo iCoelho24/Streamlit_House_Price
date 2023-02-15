@@ -8,8 +8,8 @@ from art_deploy import *
 from category_encoders.target_encoder import TargetEncoder
 from PIL import Image
 
-Model = joblib.load('Pickle\Model_Deploy.pkl')
-encoder = joblib.load('Pickle/Encoders.pkl')
+Model = joblib.load('Model_Deploy.pkl')
+encoder = joblib.load('Encoders.pkl')
 
 target_enc = encoder['Target_encod']
 normalizer = encoder['Normalizer']
@@ -436,7 +436,7 @@ elif pref_format == 'Inserindo os dados':
 
         prev = Model.predict(df_pred)
         df_prev['SalePrice'] = prev
-        image = Image.open('Imagens\house.jpg')
+        image = Image.open('house.jpg')
         st.image(image, caption='Imagem meramente ilustrativa')
 
         st.markdown(f'**A residência possui um valor estimado de: {prev}**')
